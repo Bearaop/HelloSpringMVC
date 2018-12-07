@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.bear</groupId>
+  <artifactId>HelloSpringMVC</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>HelloSpringMVC Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <spring.version>4.1.1.RELEASE</spring.version>
+  </properties>
+  
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    
+    <!-- 其中index.jsp报错，错误信息：Multiple annotations found at this line: - The superclass "javax.servlet.http.HttpServlet" was not found on the Java
+		意思是缺少servlet包，我们可以导入javax.servlet-api-3.1.0.jar包，我们可以用两种方式来处理：
+
+    1> 在pom.xml中的dependencies中加入依赖包 -->
+    
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.1.0</version>
+    </dependency>
+    
+    <!-- 2> 可以在build path中添加tomcat 库，即添加运行环境的jar包 -->
+    
+    
+    <!-- 注意：若是跳转后页面直接显示${message} ${name}说明jstl表达式不起作用，我们可以在pom.xml中添加如下依赖： -->
+    
+    <!-- <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+        <scope>runtime</scope>
+    </dependency>
+    <dependency>
+        <groupId>taglibs</groupId>
+        <artifactId>standard</artifactId>
+        <version>1.1.2</version>
+    </dependency> -->
+    
+  </dependencies>
+  <build>
+    <finalName>HelloSpringMVC</finalName>
+  </build>
+</project>
